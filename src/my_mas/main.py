@@ -7,15 +7,25 @@ from my_mas.crew import MyMasCrew
 # Replace with inputs you want to test with, it will automatically
 # interpolate any tasks and agents information
 
+def get_user_inputs():
+    """
+    Prompt the user for input values for product comparison.
+    """
+    product_category = input("Enter the product category: ").strip()
+    target_brands = input("Enter the target brands (comma-separated): ").strip()
+    key_features = input("Enter the key features: ").strip()
+    return {
+        'product_category': product_category,
+        'target_brands': target_brands,
+        'key_features': key_features
+    }
+
+
 def run():
     """
     Run the crew with comprehensive product comparison inputs.
     """
-    inputs = {
-        'product_category': 'Wireless Earbuds',
-        'target_brands': 'Apple AirPods Pro, Sony WF-1000XM4, Bose QuietComfort Earbuds, Samsung Galaxy Buds Pro',
-        'needs_features': 'Active noise cancellation, battery life over 6 hours, comfortable fit, water resistance, good sound quality'
-    }
+    inputs = get_user_inputs()
     MyMasCrew().crew().kickoff(inputs=inputs)
 
 
@@ -23,11 +33,7 @@ def train():
     """
     Train the crew for a given number of iterations with product comparison inputs.
     """
-    inputs = {
-        'product_category': 'Wireless Earbuds',
-        'target_brands': 'Apple AirPods Pro, Sony WF-1000XM4, Bose QuietComfort Earbuds, Samsung Galaxy Buds Pro',
-        'needs_features': 'Active noise cancellation, battery life over 6 hours, comfortable fit, water resistance, good sound quality'
-    }
+    inputs = get_user_inputs()
     try:
         MyMasCrew().crew().train(n_iterations=int(sys.argv[1]), filename=sys.argv[2], inputs=inputs)
 
@@ -50,13 +56,10 @@ def test():
     """
     Test the crew execution and returns the results with product comparison inputs.
     """
-    inputs = {
-        'product_category': 'Wireless Earbuds',
-        'target_brands': 'Apple AirPods Pro, Sony WF-1000XM4, Bose QuietComfort Earbuds, Samsung Galaxy Buds Pro',
-        'needs_features': 'Active noise cancellation, battery life over 6 hours, comfortable fit, water resistance, good sound quality'
-    }
+    inputs = get_user_inputs()
     try:
         MyMasCrew().crew().test(n_iterations=int(sys.argv[1]), openai_model_name=sys.argv[2], inputs=inputs)
 
     except Exception as e:
         raise Exception(f"An error occurred while testing the crew: {e}")
+

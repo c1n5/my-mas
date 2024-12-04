@@ -1,27 +1,27 @@
 analyst_task:
   description: >
     Define comprehensive requirements and evaluation framework for comparing {product_category} across {target_brands}.
-    Identify key comparison criteria focusing on {needs_features}.
+    Identify key comparison criteria focusing on {key_features}.
     Create a structured approach to systematically assess product features and performance.
   expected_output: >
     A detailed requirements document including:
     - Comprehensive product comparison framework
     - Standardized evaluation metrics
     - Specific feature dimensions to compare for {product_category}
-    - Scoring methodology aligned with {needs_features}
+    - Scoring methodology aligned with {key_features}
   agent: analyst
 
 researcher_task:
   description: >
     Collect and compile detailed information about {product_category} from {target_brands}.
     Gather technical specifications, pricing, user reviews, and expert opinions.
-    Validate data accuracy and comprehensiveness for {needs_features}.
+    Validate data accuracy and comprehensiveness for {key_features}.
   expected_output: >
     A comprehensive data compilation including:
     - Detailed technical specifications for each brand
     - Pricing information
     - Aggregated user and expert reviews
-    - Comparative data spreadsheet highlighting {needs_features}
+    - Comparative data spreadsheet highlighting {key_features}
   agent: researcher
 
 summary_agent_task:
@@ -33,7 +33,7 @@ summary_agent_task:
     A synthesized research report containing:
     - Normalized comparative data
     - Feature comparison matrix
-    - Key comparative insights for {needs_features}
+    - Key comparative insights for {key_features}
   agent: summary_agent
 
 reporting_analyst_task:
@@ -44,7 +44,7 @@ reporting_analyst_task:
   expected_output: >
     A comprehensive comparison report including:
     - Detailed product ranking
-    - Scored evaluation against {needs_features}
+    - Scored evaluation against {key_features}
     - Personalized recommendation summary
     - Comparative visualization
   agent: reporting_analyst
