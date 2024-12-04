@@ -1,0 +1,50 @@
+analyst_task:
+  description: >
+    Define comprehensive requirements and evaluation framework for comparing {product_category} across {target_brands}.
+    Identify key comparison criteria focusing on {needs_features}.
+    Create a structured approach to systematically assess product features and performance.
+  expected_output: >
+    A detailed requirements document including:
+    - Comprehensive product comparison framework
+    - Standardized evaluation metrics
+    - Specific feature dimensions to compare for {product_category}
+    - Scoring methodology aligned with {needs_features}
+  agent: analyst
+
+researcher_task:
+  description: >
+    Collect and compile detailed information about {product_category} from {target_brands}.
+    Gather technical specifications, pricing, user reviews, and expert opinions.
+    Validate data accuracy and comprehensiveness for {needs_features}.
+  expected_output: >
+    A comprehensive data compilation including:
+    - Detailed technical specifications for each brand
+    - Pricing information
+    - Aggregated user and expert reviews
+    - Comparative data spreadsheet highlighting {needs_features}
+  agent: researcher
+
+summary_agent_task:
+  description: >
+    Synthesize collected information about {product_category} from {target_brands}.
+    Normalize and standardize data to create a coherent comparative analysis.
+    Highlight key insights and patterns across different products.
+  expected_output: >
+    A synthesized research report containing:
+    - Normalized comparative data
+    - Feature comparison matrix
+    - Key comparative insights for {needs_features}
+  agent: summary_agent
+
+reporting_analyst_task:
+  description: >
+    Evaluate and rank {product_category} from {target_brands} based on established criteria.
+    Generate actionable insights and personalized recommendations.
+    Create comprehensive visualization and scoring of products.
+  expected_output: >
+    A comprehensive comparison report including:
+    - Detailed product ranking
+    - Scored evaluation against {needs_features}
+    - Personalized recommendation summary
+    - Comparative visualization
+  agent: reporting_analyst
