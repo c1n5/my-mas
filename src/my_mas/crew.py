@@ -70,35 +70,35 @@ class MyMasCrew():
             config=self.tasks_config['summary_agent_task'],
         )
 
- #   @task
- #   def reporting_analyst_task(self) -> Task:
- #       """Creates the Reporting Analyst Task for generating final report"""
- #       return Task(
- #           config=self.tasks_config['reporting_analyst_task'],
- #           output_file='product_comparison_report.md'
- #       )
-
-
     @task
     def reporting_analyst_task(self) -> Task:
-        """Creates the Reporting Analyst Task for generating the final report."""
-        # Ensure product_category is passed as part of the task's configuration or inputs
-        try:
-            # Fetch product_category from task configuration or inputs
-            product_category = self.tasks_config.get('product_category') or self.inputs.get('product_category', 'default_category')
-            product_category = product_category.replace(" ", "_")  # Replace spaces with underscores
-        except AttributeError:
-            # Fallback in case self.inputs or tasks_config is not available
-            product_category = "product"
+       """Creates the Reporting Analyst Task for generating final report"""
+       return Task(
+           config=self.tasks_config['reporting_analyst_task'],
+           output_file='product_report.md'
+       )
 
-        # Construct the output file name dynamically
-        output_file_name = f'{product_category}_comparison_report.md'
 
-        # Return the Task with the dynamically named output file
-        return Task(
-            config=self.tasks_config['reporting_analyst_task'],
-            output_file=output_file_name
-        )
+    # @task
+    # def reporting_analyst_task(self) -> Task:
+    #     """Creates the Reporting Analyst Task for generating the final report."""
+    #     # Ensure product_category is passed as part of the task's configuration or inputs
+    #     try:
+    #         # Fetch product_category from task configuration or inputs
+    #         product_category = self.tasks_config.get('product_category') or self.inputs.get('product_category', 'default_category')
+    #         product_category = product_category.replace(" ", "_")  # Replace spaces with underscores
+    #     except AttributeError:
+    #         # Fallback in case self.inputs or tasks_config is not available
+    #         product_category = "product"
+
+    #     # Construct the output file name dynamically
+    #     output_file_name = f'{product_category}_comparison_report.md'
+
+    #     # Return the Task with the dynamically named output file
+    #     return Task(
+    #         config=self.tasks_config['reporting_analyst_task'],
+    #         output_file=output_file_name
+    #     )
 
 
     @crew
